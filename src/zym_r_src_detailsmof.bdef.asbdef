@@ -1,0 +1,198 @@
+managed implementation in class ZYM_BP_R_SRC_DETAILSMOF unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZYM_R_SRC_DETAILSMOF alias Src_details
+persistent table ZYM_SRCDTAILSMOF
+extensible
+draft table ZYM_SRCDTLS_DMOF
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZYM_SRCDTAILSMOF corresponding extensible
+  {
+    UUID = UUID;
+    ObjectType = OBJECT_TYPE;
+    ObjectID = OBJECT_ID;
+    Begda = BEGDA;
+    Endda = ENDDA;
+    Stext = STEXT;
+    Ltext = LTEXT;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _SRC_classification { create; with draft; }
+  association _SRC_Price { create; with draft; }
+  association _SRC_discount { create; with draft; }
+  association _src_relation { create; with draft; }
+
+}
+
+define behavior for ZYM_R_SRC_CLASSIFICATIONMOF alias SRC_classification
+persistent table ZYM_SRCCLSSFCMOF
+extensible
+draft table ZYM_SRCCLSS_DMOF
+etag dependent by _Src_details
+lock dependent by _Src_details
+authorization dependent by _Src_details
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZYM_SRCCLSSFCMOF corresponding extensible
+  {
+    UUID = UUID;
+    ParentUUID = PARENT_UUID;
+    ObjectType = OBJECT_TYPE;
+    ObjectID = OBJECT_ID;
+    Begda = BEGDA;
+    Endda = ENDDA;
+    Gfs = GFS;
+    NaturalAccount = NATURAL_ACCOUNT;
+  }
+
+  association _Src_details { with draft; }
+
+}
+
+define behavior for ZYM_R_SRC_PRICEMOF alias SRC_Price
+persistent table ZYM_SRCPRICEMOF
+extensible
+draft table ZYM_SRCPRCE_DMOF
+etag dependent by _Src_details
+lock dependent by _Src_details
+authorization dependent by _Src_details
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZYM_SRCPRICEMOF corresponding extensible
+  {
+    UUID = UUID;
+    ParentUUID = PARENT_UUID;
+    ObjectType = OBJECT_TYPE;
+    ObjectID = OBJECT_ID;
+    Begda = BEGDA;
+    Endda = ENDDA;
+    Price = PRICE;
+    CurrencyCode = CURRENCY_CODE;
+  }
+
+  association _Src_details { with draft; }
+
+}
+
+define behavior for ZYM_R_SRC_DISCOUNTMOF alias SRC_discount
+persistent table ZYM_SRCDSCUNTMOF
+extensible
+draft table ZYM_SRCDSCN_DMOF
+etag dependent by _Src_details
+lock dependent by _Src_details
+authorization dependent by _Src_details
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZYM_SRCDSCUNTMOF corresponding extensible
+  {
+    UUID = UUID;
+    ParentUUID = PARENT_UUID;
+    ObjectType = OBJECT_TYPE;
+    ObjectID = OBJECT_ID;
+    Begda = BEGDA;
+    Endda = ENDDA;
+    Discount = DISCOUNT;
+    Currency = CURRENCY;
+  }
+
+  association _Src_details { with draft; }
+
+}
+
+define behavior for ZYM_R_SRC_RELATIONMOF alias src_relation
+persistent table ZYM_SRCRLTIONMOF
+extensible
+draft table ZYM_SRCRLTN_DMOF
+etag dependent by _Src_details
+lock dependent by _Src_details
+authorization dependent by _Src_details
+{
+  field ( readonly )
+   UUID,
+   ParentUUID;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  update;
+  delete;
+
+  mapping for ZYM_SRCRLTIONMOF corresponding extensible
+  {
+    UUID = UUID;
+    ParentUUID = PARENT_UUID;
+    Fotype = FOTYPE;
+    Fobjid = FOBJID;
+    Begda = BEGDA;
+    Endda = ENDDA;
+    RelationType = RELATION_TYPE;
+    RelationID = RELATION_ID;
+    Totype = TOTYPE;
+    Tobjid = TOBJID;
+  }
+
+  association _Src_details { with draft; }
+
+}

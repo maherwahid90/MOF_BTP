@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_C_SRC_PRICEMOF'
+@MappingRole: true
+define role ZYM_C_SRC_PRICEMOF {
+  grant select on ZYM_C_SRC_PRICEMOF
+  where INHERITING CONDITIONS FROM ENTITY ZYM_R_SRC_PRICEMOF REPLACING { ROOT WITH _BaseEntity };
+}

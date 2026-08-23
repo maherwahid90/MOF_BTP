@@ -1,0 +1,139 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'GeCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'GeCode'
+annotate view ZZM_C_SRC_GE_TMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'GeCode'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'GeCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'GeCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  GeCode;
+  
+  @EndUserText.label: 'GeName'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'GeName'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'GeName'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  GeName;
+  
+  @EndUserText.label: 'Region'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Region'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Region'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Region;
+  
+  @EndUserText.label: 'Iban'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Iban'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Iban'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Iban;
+  
+  @EndUserText.label: 'IsActive'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'IsActive'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'IsActive'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  IsActive;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  LastChangedAt;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_C_YOBJECT_TYPEMOF'
+@MappingRole: true
+define role ZYM_C_YOBJECT_TYPEMOF {
+  grant select on ZYM_C_YOBJECT_TYPEMOF
+  where INHERITING CONDITIONS FROM ENTITY ZYM_R_YOBJECT_TYPEMOF REPLACING { ROOT WITH _BaseEntity };
+}

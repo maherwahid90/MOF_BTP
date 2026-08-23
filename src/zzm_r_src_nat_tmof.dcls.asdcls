@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZZM_R_SRC_NAT_TMOF'
+@MappingRole: true
+define role ZZM_R_SRC_NAT_TMOF {
+  grant select on ZZM_R_SRC_NAT_TMOF
+  where TRUE;
+}

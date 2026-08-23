@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZZM_SRC_METH_T",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZZM_SRC_METH_T",
+  "sapObjectType": "ZZM_SRC_METH_T",
+  "rootNode": true
+}

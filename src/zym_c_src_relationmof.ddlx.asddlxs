@@ -1,0 +1,154 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZYM_C_SRC_RELATIONMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'UUID'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  UUID;
+  
+  @EndUserText.label: 'ParentUUID'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'ParentUUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'ParentUUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  ParentUUID;
+  
+  @EndUserText.label: 'Fotype'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Fotype'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Fotype'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Fotype;
+  
+  @EndUserText.label: 'Fobjid'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Fobjid'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Fobjid'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Fobjid;
+  
+  @EndUserText.label: 'Begda'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Begda'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Begda'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Begda;
+  
+  @EndUserText.label: 'Endda'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Endda'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Endda'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  Endda;
+  
+  @EndUserText.label: 'RelationType'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'RelationType'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'RelationType'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  RelationType;
+  
+  @EndUserText.label: 'RelationID'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'RelationID'
+  } ]
+  @UI.lineItem: [ {
+    position: 80 , 
+    label: 'RelationID'
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  RelationID;
+  
+  @EndUserText.label: 'Totype'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'Totype'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'Totype'
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  Totype;
+  
+  @EndUserText.label: 'Tobjid'
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'Tobjid'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 , 
+    label: 'Tobjid'
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  Tobjid;
+}

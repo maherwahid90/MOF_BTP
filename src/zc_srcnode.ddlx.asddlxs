@@ -1,0 +1,112 @@
+
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'SRC Node', typeNamePlural: 'SRC Nodes',
+                     title: { type: #STANDARD, value: 'SrcCode' },
+                     description: { value: 'SrcName' } } }
+annotate entity ZC_SrcNode with
+{
+  @UI.facet: [
+    { id: 'General',    type: #COLLECTION,               label: 'بيانات الهيكل الوطني',            position: 10 },
+    { id: 'Class',      type: #FIELDGROUP_REFERENCE, parentId: 'General',
+      targetQualifier: 'Classification', label: 'البيانات الاساسية', position: 10 },
+    { id: 'Channels',   type: #FIELDGROUP_REFERENCE, parentId: 'General',
+      targetQualifier: 'Channels',       label: 'المستفيدين من الخدمة', position: 20 },
+    { id: 'Financials', type: #FIELDGROUP_REFERENCE, parentId: 'General',
+      targetQualifier: 'Financials',     label: 'البيانات المالية', position: 30 },
+    { id: 'PayMethods', type: #LINEITEM_REFERENCE, label: 'طرق الدفع',
+      position: 20, targetElement: '_PayMethod' },
+    { id: 'GovEntities', type: #LINEITEM_REFERENCE, label: 'الجهات الوكيلة',
+      position: 30, targetElement: '_GovEntity' }
+  ]
+
+  // ---- list columns + row actions ----
+  @UI.lineItem: [{ position: 10 },
+                 { type: #FOR_ACTION, dataAction: 'submitForApproval', label: 'ارسال للموافقة' },
+                 { type: #FOR_ACTION, dataAction: 'approve', label: 'الاعتماد' },
+                 { type: #FOR_ACTION, dataAction: 'reject',  label: 'الرفض' }]
+                   @UI.fieldGroup: [{ qualifier: 'Classification', position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'رمز البند '
+  @UI.selectionField: [{ position: 10 }]
+  SrcCode;
+  @UI.lineItem: [{ position: 20 }]
+   @UI.fieldGroup: [{ qualifier: 'Classification', position: 30 }]
+ @EndUserText.label: 'اسم البند'
+   @UI.selectionField: [{ position: 20 }]
+  SrcName;
+  @UI.lineItem: [{ position: 30, label: 'Type' }]
+    @UI.fieldGroup: [{ qualifier: 'Classification', position: 20 }]
+    @EndUserText.label: 'نوع البند'
+      @UI.selectionField: [{ position: 30 }]
+  SrcType;
+//  @UI.lineItem: [{ position: 40, criticality: 'StatusCriticality' }]
+//  ProcessingStatus;
+
+  // ---- Classification field group ----
+
+
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 40 }]
+  @EndUserText.label: 'وصف البند'
+  @UI.multiLineText: true
+  SrcDesc;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 50 }]
+  @EndUserText.label: 'التصنيف الاقتصادي'
+    @UI.selectionField: [{ position: 40 }]
+  GfsCode;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 60 }]
+  @EndUserText.label: 'الحساب الطبيعي'
+    @UI.selectionField: [{ position: 50 }]
+  NaturalAccount;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 70 }]
+  @EndUserText.label: 'آلية تقديم الخدمة'
+    @UI.selectionField: [{ position: 60 }]
+  SrcMethod;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 80, label: 'قابلة للاسترداد' }]
+  @EndUserText.label: 'قابلة للاسترداد'
+    @UI.selectionField: [{ position: 70 }]
+  IsRefundable;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 90 }]
+  @EndUserText.label: 'طبيعة ايراد الخدمة'
+    @UI.selectionField: [{ position: 80 }]
+  SrcNature;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 100, label: 'نسبة الايرادات المباشرة' }]
+  @EndUserText.label: 'نسبة الايرادات المباشرة'
+  SrcNaturePct;
+  @UI.fieldGroup: [{ qualifier: 'Classification', position: 110, label: 'الجهة المالكة' }]
+  @EndUserText.label: 'الجهة المالكة'
+    @UI.selectionField: [{ position: 90 }]
+  OwnerGECode;
+
+  // ---- Beneficiary channel checkboxes (custom labels) ----
+  @EndUserText.label: 'الأفراد'
+  @UI.fieldGroup: [{ qualifier: 'Channels', position: 10, label: 'الأفراد' }]
+  G2C;
+  @EndUserText.label: 'الأعمال'
+  @UI.fieldGroup: [{ qualifier: 'Channels', position: 20, label: 'الأعمال' }]
+  G2B;
+  @EndUserText.label: 'الجهات الحكومية'
+  @UI.fieldGroup: [{ qualifier: 'Channels', position: 30, label: 'الجهات الحكومية' }]
+  G2G;
+
+  // ---- Validity & pricing ----
+  @UI.fieldGroup: [{ qualifier: 'Financials', position: 10 }]
+  @EndUserText.label: 'تاريخ بداية سريان البند'
+  StartDate;
+  @UI.fieldGroup: [{ qualifier: 'Financials', position: 20 }]
+  @EndUserText.label: 'تاريخ نهاية سريان البند'
+  EndDate;
+  @UI.fieldGroup: [{ qualifier: 'Financials', position: 30 }]
+  @EndUserText.label: 'سعر البند'
+  Price;
+  @UI.fieldGroup: [{ qualifier: 'Financials', position: 40 }]
+  @EndUserText.label: 'قيمة الخصم'
+  Discount;
+  @UI.fieldGroup: [{ qualifier: 'Financials', position: 50 }]
+  @UI.hidden: true
+  CurrencyCode;
+
+  @UI.hidden: true
+  NodeUUID;
+  @UI.hidden: true
+  ParentUUID;
+}

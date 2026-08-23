@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_R_YRELATIONMOF'
+@MappingRole: true
+define role ZYM_R_YRELATIONMOF {
+  grant select on ZYM_R_YRELATIONMOF
+  where TRUE;
+}

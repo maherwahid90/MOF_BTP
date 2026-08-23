@@ -1,0 +1,199 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZYM_C_SRC_DETAILSMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  }, 
+  {
+    label: 'SRC_classification Items', 
+    id: 'SRC_classificationItems', 
+    purpose: #STANDARD, 
+    position: 11 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_SRC_classification'
+  }, 
+  {
+    label: 'SRC_Price Items', 
+    id: 'SRC_PriceItems', 
+    purpose: #STANDARD, 
+    position: 12 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_SRC_Price'
+  }, 
+  {
+    label: 'SRC_discount Items', 
+    id: 'SRC_discountItems', 
+    purpose: #STANDARD, 
+    position: 13 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_SRC_discount'
+  }, 
+  {
+    label: 'src_relation Items', 
+    id: 'src_relationItems', 
+    purpose: #STANDARD, 
+    position: 14 , 
+    type: #LINEITEM_REFERENCE, 
+    targetElement: '_src_relation'
+  } ]
+  @EndUserText.label: 'UUID'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  UUID;
+  
+  @EndUserText.label: 'ObjectType'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'ObjectType'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'ObjectType'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  ObjectType;
+  
+  @EndUserText.label: 'ObjectID'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'ObjectID'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'ObjectID'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  ObjectID;
+  
+  @EndUserText.label: 'Begda'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Begda'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Begda'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  Begda;
+  
+  @EndUserText.label: 'Endda'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Endda'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Endda'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Endda;
+  
+  @EndUserText.label: 'Stext'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Stext'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Stext'
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  Stext;
+  
+  @EndUserText.label: 'Ltext'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'Ltext'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'Ltext'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  Ltext;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 110 
+  } ]
+  @UI.lineItem: [ {
+    position: 110 
+  } ]
+  @UI.selectionField: [ {
+    position: 110 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 120 
+  } ]
+  @UI.lineItem: [ {
+    position: 120 
+  } ]
+  @UI.selectionField: [ {
+    position: 120 
+  } ]
+  LastChangedAt;
+}

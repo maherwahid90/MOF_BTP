@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_C_SRC_DISCOUNTMOF'
+@MappingRole: true
+define role ZYM_C_SRC_DISCOUNTMOF {
+  grant select on ZYM_C_SRC_DISCOUNTMOF
+  where INHERITING CONDITIONS FROM ENTITY ZYM_R_SRC_DISCOUNTMOF REPLACING { ROOT WITH _BaseEntity };
+}

@@ -1,0 +1,110 @@
+managed implementation in class zbp_i_srcnode unique;
+strict ( 2 );
+with draft;
+//strict ( 2 );
+
+define behavior for ZI_SrcNode alias SrcNode
+persistent table zsrc_node
+draft table zsrc_d_node
+lock master total etag LastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create; update; delete;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare { validation validateNode; validation validateParent; validation validateDates; }
+
+  action ( features : instance ) submitForApproval result [1] $self;
+  action ( features : instance ) approve            result [1] $self;
+  action ( features : instance ) reject             result [1] $self;
+
+  field ( readonly, numbering : managed ) NodeUUID;
+  field ( readonly ) ProcessingStatus, IsActive, NodeLevel;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+  field ( mandatory ) SrcCode, SrcName, SrcType;
+
+  association _PayMethod { create; with draft; }
+  association _GovEntity { create; with draft; }
+  association _Parent     {
+
+    link action linkManager;
+    unlink action unlinkManager;
+  }
+   instance hierarchy zsrc_hierarchy
+  {
+   // managed reorder action changeNextSibling;
+    //field ( hierarchy-index ) NodeLevel;
+    ascending association _parent ;
+    copy action copy;
+  }
+
+  determination setInitialStatus on modify { create; }
+  determination setInitialLevel  on modify { create; field ParentUUID; }
+  validation    validateNode     on save   { create; field SrcCode, SrcName, SrcType; }
+  validation    validateParent   on save   { create; field ParentUUID; }
+  validation    validateDates    on save   { create; field StartDate, EndDate; }
+
+  mapping for zsrc_node
+  {
+    NodeUUID = node_uuid;               ParentUUID = parent_uuid;   NodeLevel = node_level;
+    SrcCode = src_code;                 SrcType = src_type;         SrcName = src_name;
+    SrcDesc = src_desc;                 GfsCode = gfs_code;         NaturalAccount = natural_account;
+    IsRefundable = is_refundable;       SrcMethod = src_method;
+    G2C = g2c;                          G2B = g2b;                  G2G = g2g;
+    SrcNature = src_nature;             SrcNaturePct = src_nature_pct;
+    OwnerGECode = owner_ge_code;        StartDate = start_date;     EndDate = end_date;
+    Price = price;                      Discount = discount;        CurrencyCode = currency_code;
+    ProcessingStatus = processing_status; IsActive = is_active;
+    CreatedBy = created_by;             CreatedAt = created_at;
+    LastChangedBy = last_changed_by;    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+define behavior for ZI_SrcGovEntity alias GovEntity
+persistent table zsrc_gov
+draft table zsrc_d_gov
+lock dependent by _Node
+authorization dependent by _Node
+etag master LocalLastChangedAt
+{
+  update; delete;
+  field ( readonly, numbering : managed ) GovEntityRowUUID;
+  field ( readonly ) NodeUUID;
+  field ( mandatory ) GovEntityCode;
+  association _Node { with draft; }
+
+  mapping for zsrc_gov
+  {
+    GovEntityRowUUID = ge_uuid;   NodeUUID = node_uuid;   GovEntityCode = ge_code;
+    CollectionPct = collection_pct; BeginDate = begin_date; EndDate = end_date;
+    CreatedBy = created_by; CreatedAt = created_at;
+    LastChangedBy = last_changed_by; LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+define behavior for ZI_SrcPayMethod alias PayMethod
+persistent table zsrc_paym
+draft table zsrc_d_paym
+lock dependent by _Node
+authorization dependent by _Node
+etag master LocalLastChangedAt
+{
+  update; delete;
+  field ( readonly, numbering : managed ) PayMethodUUID;
+  field ( readonly ) NodeUUID;
+  field ( mandatory ) PayType;
+  association _Node { with draft; }
+
+  mapping for zsrc_paym
+  {
+    PayMethodUUID = pm_uuid; NodeUUID = node_uuid; PayType = pay_type; PayName = pay_name;
+    BeginDate = begin_date;  EndDate = end_date;
+    CreatedBy = created_by;  CreatedAt = created_at;
+    LastChangedBy = last_changed_by; LocalLastChangedAt = local_last_changed_at;
+  }
+}

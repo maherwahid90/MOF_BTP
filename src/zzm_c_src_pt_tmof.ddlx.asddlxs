@@ -1,0 +1,111 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'PtCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'PtCode'
+annotate view ZZM_C_SRC_PT_TMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'PtCode'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'PtCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'PtCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  PtCode;
+  
+  @EndUserText.label: 'PtName'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'PtName'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'PtName'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  PtName;
+  
+  @EndUserText.label: 'IsActive'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'IsActive'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'IsActive'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  IsActive;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  LastChangedAt;
+}

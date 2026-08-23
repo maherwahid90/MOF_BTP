@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_R_YOBJECT_TYPEMOF'
+@MappingRole: true
+define role ZYM_R_YOBJECT_TYPEMOF {
+  grant select on ZYM_R_YOBJECT_TYPEMOF
+  where TRUE;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_R_SRC_CLASSIFICATIONMOF'
+@MappingRole: true
+define role ZYM_R_SRC_CLASSIFICATIONMOF {
+  grant select on ZYM_R_SRC_CLASSIFICATIONMOF
+  where TRUE;
+}

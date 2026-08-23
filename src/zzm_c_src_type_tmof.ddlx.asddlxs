@@ -1,0 +1,97 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'TypeCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'TypeCode'
+annotate view ZZM_C_SRC_TYPE_TMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'TypeCode'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'TypeCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'TypeCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  TypeCode;
+  
+  @EndUserText.label: 'TypeName'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'TypeName'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'TypeName'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  TypeName;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LastChangedAt;
+}

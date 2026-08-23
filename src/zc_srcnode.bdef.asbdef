@@ -1,0 +1,42 @@
+projection;
+strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+use draft;
+
+define behavior for ZC_SrcNode alias SrcNode
+{
+  use create;
+  use update;
+  use delete;
+
+  use action submitForApproval;
+  use action approve;
+  use action reject;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _PayMethod { create; with draft; }
+  use association _GovEntity { create; with draft; }
+  use association _Parent {
+    link action linkManager;
+    unlink action unlinkManager;}
+}
+
+define behavior for ZC_SrcGovEntity alias GovEntity
+{
+  use update;
+  use delete;
+
+  use association _Node { with draft; }
+}
+
+define behavior for ZC_SrcPayMethod alias PayMethod
+{
+  use update;
+  use delete;
+
+  use association _Node { with draft; }
+}

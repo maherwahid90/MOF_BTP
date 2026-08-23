@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZZM_C_SRC_METH_T'
+@MappingRole: true
+define role ZZM_C_SRC_METH_T {
+  grant select on ZZM_C_SRC_METH_T
+  where INHERITING CONDITIONS FROM ENTITY ZZM_R_SRC_METH_T REPLACING { ROOT WITH _BaseEntity };
+}

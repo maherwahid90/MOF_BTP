@@ -1,0 +1,97 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'MethodCode'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'MethodCode'
+annotate view ZZM_C_SRC_METH_T with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'MethodCode'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'MethodCode'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'MethodCode'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  MethodCode;
+  
+  @EndUserText.label: 'MethodName'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'MethodName'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'MethodName'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  MethodName;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LastChangedAt;
+}

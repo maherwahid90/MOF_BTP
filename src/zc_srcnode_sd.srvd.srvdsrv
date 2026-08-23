@@ -1,0 +1,11 @@
+@EndUserText.label: 'sd'
+@ObjectModel.leadingEntity.name: 'zsrc_hierarchy'
+define service ZC_SRCNODE_sd {
+  expose ZC_SrcNode;
+  expose ZC_SrcPayMethod;
+  expose ZC_SrcGovEntity;
+  expose ZI_SrcType_VH;
+  expose ZI_SrcMethod_VH;
+  expose ZI_SrcNature_VH;
+  expose ZI_GovEntity_VH;
+}

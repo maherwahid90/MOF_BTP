@@ -1,0 +1,20 @@
+projection implementation in class ZYM_BP_C_YOBJECT_TYPEMOF unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZYM_C_YOBJECT_TYPEMOF alias yobject_type
+extensible
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+}

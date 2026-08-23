@@ -1,0 +1,139 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZYM_C_YRELATIONMOF with
+{
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @EndUserText.label: 'UUID'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  UUID;
+  
+  @EndUserText.label: 'RelationType'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'RelationType'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'RelationType'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  RelationType;
+  
+  @EndUserText.label: 'Relation'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Relation'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Relation'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  Relation;
+  
+  @EndUserText.label: 'RelationNameAr'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'RelationNameAr'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'RelationNameAr'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  RelationNameAr;
+  
+  @EndUserText.label: 'RelationNameEn'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'RelationNameEn'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'RelationNameEn'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  RelationNameEn;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  LastChangedAt;
+}

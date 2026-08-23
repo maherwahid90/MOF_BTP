@@ -1,0 +1,49 @@
+managed implementation in class ZZM_BP_R_SRC_PT_TMOF unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZM_R_SRC_PT_TMOF alias ZzmRSrcPtTmof
+persistent table ZSRC_PT_T
+extensible
+draft table ZZM_SRC_PT_DMOF
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   PtCode;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   PtCode;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZSRC_PT_T corresponding extensible
+  {
+    PtCode = PT_CODE;
+    PtName = PT_NAME;
+    IsActive = IS_ACTIVE;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

@@ -1,0 +1,48 @@
+managed implementation in class ZYM_BP_R_YOBJECT_TYPEMOF unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZYM_R_YOBJECT_TYPEMOF alias yobject_type
+persistent table ZYM_YBJCTTYPEMOF
+extensible
+draft table ZYM_YBJCTTP_DMOF
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZYM_YBJCTTYPEMOF corresponding extensible
+  {
+    UUID = UUID;
+    ObjectType = OBJECT_TYPE;
+    ObjectNameAr = OBJECT_NAME_AR;
+    ObjectNameEn = OBJECT_NAME_EN;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

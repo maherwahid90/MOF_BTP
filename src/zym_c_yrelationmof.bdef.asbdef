@@ -1,0 +1,20 @@
+projection implementation in class ZYM_BP_C_YRELATIONMOF unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZYM_C_YRELATIONMOF alias yrelation
+extensible
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+}

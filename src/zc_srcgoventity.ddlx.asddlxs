@@ -1,0 +1,32 @@
+
+@Metadata.layer: #CORE
+annotate entity ZC_SrcGovEntity with
+{
+ @UI.facet: [ {
+    label: 'الجهات الوكيلة', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.lineItem: [{ position: 10, label: 'رمز الجهة الوكيلة' }]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'رمز الجهة الوكيلة'
+  GovEntityCode;
+  @UI.lineItem: [{ position: 20, label: 'نسبة ايراد الجهة الوكيلة' }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'ننسبة ايراد الجهة الوكيلة'
+  CollectionPct;
+  @UI.lineItem: [{ position: 30 }] @UI.identification: [{ position: 30 }]
+  
+  @EndUserText.label: 'تاريخ البداية'
+  BeginDate;
+  @UI.lineItem: [{ position: 40 }] @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'تاريخ النهاية'
+
+  EndDate;
+  @UI.hidden: true
+  GovEntityRowUUID;
+  @UI.hidden: true
+  NodeUUID;
+}

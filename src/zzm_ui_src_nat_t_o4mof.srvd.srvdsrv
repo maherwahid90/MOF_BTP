@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZZM_C_SRC_NAT_TMOF'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZZM_C_SRC_NAT_TMOF'
+  }
+}
+define service ZZM_UI_SRC_NAT_T_O4MOF provider contracts odata_v4_ui {
+  expose ZZM_C_SRC_NAT_TMOF;
+}

@@ -1,0 +1,20 @@
+projection implementation in class ZZM_BP_C_SRC_PT_TMOF unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZZM_C_SRC_PT_TMOF alias ZzmCSrcPtTmof
+extensible
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+}

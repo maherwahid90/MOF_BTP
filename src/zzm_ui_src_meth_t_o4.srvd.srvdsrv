@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZZM_C_SRC_METH_T'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZZM_C_SRC_METH_T'
+  }
+}
+define service ZZM_UI_SRC_METH_T_O4 provider contracts odata_v4_ui {
+  expose ZZM_C_SRC_METH_T;
+}

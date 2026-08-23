@@ -1,0 +1,15 @@
+@EndUserText: {
+  label: 'Service Definition for ZYM_C_SRC_DETAILSMOF'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZYM_C_SRC_DETAILSMOF'
+  }
+}
+define service ZYM_UI_SRC_DETAILS_O4MOF provider contracts odata_v4_ui {
+  expose ZYM_C_SRC_DETAILSMOF as Src_details;
+  expose ZYM_C_SRC_CLASSIFICATIONMOF as SRC_classification;
+  expose ZYM_C_SRC_PRICEMOF as SRC_Price;
+  expose ZYM_C_SRC_DISCOUNTMOF as SRC_discount;
+  expose ZYM_C_SRC_RELATIONMOF as src_relation;
+}

@@ -1,0 +1,49 @@
+managed implementation in class ZYM_BP_R_YRELATIONMOF unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZYM_R_YRELATIONMOF alias yrelation
+persistent table ZYM_YRELATIONMOF
+extensible
+draft table ZYM_YRLTION_DMOF
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZYM_YRELATIONMOF corresponding extensible
+  {
+    UUID = UUID;
+    RelationType = RELATION_TYPE;
+    Relation = RELATION;
+    RelationNameAr = RELATION_NAME_AR;
+    RelationNameEn = RELATION_NAME_EN;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

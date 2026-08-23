@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZYM_C_YOBJECT_TYPEMOF'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZYM_C_YOBJECT_TYPEMOF'
+  }
+}
+define service ZYM_UI_YOBJECT_O4MOF provider contracts odata_v4_ui {
+  expose ZYM_C_YOBJECT_TYPEMOF as yobject_type;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZYM_C_YRELATIONMOF'
+@MappingRole: true
+define role ZYM_C_YRELATIONMOF {
+  grant select on ZYM_C_YRELATIONMOF
+  where INHERITING CONDITIONS FROM ENTITY ZYM_R_YRELATIONMOF REPLACING { ROOT WITH _BaseEntity };
+}
