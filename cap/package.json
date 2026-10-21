@@ -1,0 +1,68 @@
+{
+  "name": "mof-src",
+  "version": "1.0.0",
+  "description": "MOF Source of Revenue Code (SRC) application - SAP CAP backend with a React UI",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@cap-js/hana": "^3",
+    "@sap/cds": "^10",
+    "@sap/xssec": "^4",
+    "express": "^5"
+  },
+  "devDependencies": {
+    "@cap-js/cds-test": "^1",
+    "@cap-js/sqlite": "^3",
+    "@sap/cds-dk": "^10"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "dev:ui": "npm run dev --prefix app/web",
+    "build:ui": "npm ci --prefix app/web && npm run build --prefix app/web",
+    "build": "mbt build -t mta_archives",
+    "deploy": "cf deploy mta_archives/mof-src_1.0.0.mtar",
+    "test": "node --test test/*.test.js"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      },
+      "auth": {
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "password": "alice",
+              "roles": ["SrcViewer", "SrcEditor", "SrcAdmin"]
+            },
+            "bob": {
+              "password": "bob",
+              "roles": ["SrcViewer", "SrcApprover"]
+            },
+            "carol": {
+              "password": "carol",
+              "roles": ["SrcViewer"]
+            },
+            "*": false
+          }
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
+      }
+    }
+  }
+}

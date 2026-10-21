@@ -24,6 +24,13 @@ Most UI labels are in Arabic.
 | SRC Natures | Revenue nature master | `ZZM_R_SRC_NAT_TMOF` | `ZZM_UI_SRC_NAT_T_O4MOF` | OData V4 |
 | Payment Types | Payment type master | `ZZM_R_SRC_PT_TMOF` | `ZZM_UI_SRC_PT_T_O4MOF` | OData V4 |
 
+## CAP + React version
+
+[`cap/`](cap/README.md) contains a rebuild of the SRC application for SAP BTP Cloud Foundry
+(including the free trial): SAP CAP (Node.js) + SAP HANA Cloud backend, React frontend, XSUAA security.
+It implements the approval workflow and validations that are still stubs in the ABAP version.
+See [cap/README.md](cap/README.md) for running it locally and deploying to BTP.
+
 ## Documentation
 
 | Document | Contents |

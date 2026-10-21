@@ -1,0 +1,8 @@
+node_modules/
+gen/
+mta_archives/
+*.mtar
+.mta/
+*.sqlite
+default-env.json
+.cdsrc-private.json

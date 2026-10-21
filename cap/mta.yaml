@@ -1,0 +1,95 @@
+_schema-version: '3.1'
+ID: mof-src
+version: 1.0.0
+description: MOF Source of Revenue Code (SRC) - CAP + React
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+        - npm run build:ui
+
+modules:
+  # CAP service (OData V4)
+  - name: mof-src-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 256M
+      disk-quota: 512M
+    properties:
+      # loads the demo data from srv/sample-data once, only while the database has no master data
+      SEED_SAMPLE_DATA: true
+    build-parameters:
+      builder: npm
+      ignore: ['node_modules/']
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: mof-src-db
+      - name: mof-src-auth
+
+  # deploys tables, views and sample CSV data to the HDI container
+  - name: mof-src-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: mof-src-db
+
+  # approuter: login + React static files + /odata proxy
+  - name: mof-src
+    type: approuter.nodejs
+    path: app/router
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+      keep-existing-routes: true
+    build-parameters:
+      ignore: ['node_modules/']
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          url: ~{srv-url}
+          forwardAuthToken: true
+          timeout: 60000
+      - name: mof-src-auth
+
+resources:
+  - name: mof-src-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  - name: mof-src-auth
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: app-api
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: mof-src-${org}-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          redirect-uris:
+            - ~{app-api/app-protocol}://~{app-api/app-uri}/**

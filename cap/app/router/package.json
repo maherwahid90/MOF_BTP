@@ -1,0 +1,12 @@
+{
+  "name": "mof-src-approuter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Application router: login via XSUAA, serves the React build and proxies /odata to the CAP service",
+  "dependencies": {
+    "@sap/approuter": "^23"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js"
+  }
+}

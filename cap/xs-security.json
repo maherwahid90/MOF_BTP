@@ -1,0 +1,42 @@
+{
+  "scopes": [
+    { "name": "$XSAPPNAME.SrcViewer", "description": "Display SRC data" },
+    { "name": "$XSAPPNAME.SrcEditor", "description": "Maintain SRC nodes and details, submit for approval" },
+    { "name": "$XSAPPNAME.SrcApprover", "description": "Approve or reject SRC nodes" },
+    { "name": "$XSAPPNAME.SrcAdmin", "description": "Maintain SRC master data" }
+  ],
+  "attributes": [],
+  "role-templates": [
+    { "name": "SrcViewer", "description": "SRC viewer", "scope-references": ["$XSAPPNAME.SrcViewer"] },
+    { "name": "SrcEditor", "description": "SRC editor", "scope-references": ["$XSAPPNAME.SrcEditor"] },
+    { "name": "SrcApprover", "description": "SRC approver", "scope-references": ["$XSAPPNAME.SrcApprover"] },
+    { "name": "SrcAdmin", "description": "SRC master data administrator", "scope-references": ["$XSAPPNAME.SrcAdmin"] }
+  ],
+  "role-collections": [
+    {
+      "name": "MOF_SRC_Viewer",
+      "description": "Display SRC data",
+      "role-template-references": ["$XSAPPNAME.SrcViewer"]
+    },
+    {
+      "name": "MOF_SRC_Editor",
+      "description": "Maintain SRC data and submit for approval",
+      "role-template-references": ["$XSAPPNAME.SrcViewer", "$XSAPPNAME.SrcEditor"]
+    },
+    {
+      "name": "MOF_SRC_Approver",
+      "description": "Approve or reject SRC nodes",
+      "role-template-references": ["$XSAPPNAME.SrcViewer", "$XSAPPNAME.SrcApprover"]
+    },
+    {
+      "name": "MOF_SRC_Admin",
+      "description": "All SRC authorizations including master data",
+      "role-template-references": [
+        "$XSAPPNAME.SrcViewer",
+        "$XSAPPNAME.SrcEditor",
+        "$XSAPPNAME.SrcApprover",
+        "$XSAPPNAME.SrcAdmin"
+      ]
+    }
+  ]
+}

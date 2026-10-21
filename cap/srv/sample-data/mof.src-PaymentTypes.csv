@@ -1,0 +1,6 @@
+code;name;isActive
+SADAD;سداد;true
+MADA;مدى;true
+CARD;بطاقة ائتمانية;true
+TRANSFER;تحويل بنكي;true
+CASH;نقداً;false
